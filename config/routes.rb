@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :paycheck_adjustments
   resources :paychecks
   resources :payrolls
@@ -6,7 +7,10 @@ Rails.application.routes.draw do
   resources :departments
   resources :employees
   resources :tickets
-  resources :users
   resources :companies
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :users, only: [:create]
+  post '/login', to: 'auth#create'
+  get '/profile', to: 'users#profile'
+
 end
