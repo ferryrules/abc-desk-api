@@ -1,7 +1,7 @@
 class CreatePayrolls < ActiveRecord::Migration[5.2]
   def change
     create_table :payrolls do |t|
-      t.string :payroll_status
+      t.string :payroll_status, default: 'Not Started'
       t.date :start_date
       t.date :end_date
       t.date :check_date

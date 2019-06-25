@@ -8,6 +8,5 @@ class Company < ApplicationRecord
   has_many :employees, through: :departments
 
   has_many :users
-  has_many :users, through: :tickets
-  
+
 end

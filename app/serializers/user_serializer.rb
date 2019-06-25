@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
 
-  attributes :id, :email, :username, :password_digest, :permission
+  attributes :id, :email, :username, :permission
 
   belongs_to :company
 

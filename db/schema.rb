@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
     t.string "full_name"
     t.string "pay_type"
     t.float "pay_rate"
-    t.boolean "active_status"
+    t.boolean "active_status", default: true
     t.string "filing_status"
     t.integer "w4_allowances"
     t.bigint "company_id"
@@ -57,12 +57,12 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
   end
 
   create_table "paychecks", force: :cascade do |t|
-    t.float "hours"
-    t.float "ot_hours"
-    t.float "pto_hours"
-    t.float "vacation_hours"
-    t.float "holiday_hours"
-    t.float "sick_hours"
+    t.float "hours", default: 0.0
+    t.float "ot_hours", default: 0.0
+    t.float "pto_hours", default: 0.0
+    t.float "vacation_hours", default: 0.0
+    t.float "holiday_hours", default: 0.0
+    t.float "sick_hours", default: 0.0
     t.bigint "payroll_id"
     t.bigint "employee_id"
     t.datetime "created_at", null: false
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
   end
 
   create_table "payrolls", force: :cascade do |t|
-    t.string "payroll_status"
+    t.string "payroll_status", default: "Not Started"
     t.date "start_date"
     t.date "end_date"
     t.date "check_date"

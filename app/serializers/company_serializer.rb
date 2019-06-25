@@ -1,5 +1,5 @@
 class CompanySerializer < ActiveModel::Serializer
-  
+
   attributes :id, :name
 
   has_many :departments
@@ -10,6 +10,5 @@ class CompanySerializer < ActiveModel::Serializer
   has_many :employees, through: :departments
 
   has_many :users
-  has_many :users, through: :tickets
 
 end
