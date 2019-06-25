@@ -1,4 +1,9 @@
 class UserSerializer < ActiveModel::Serializer
+
   attributes :id, :email, :username, :password_digest, :permission
-  has_one :company
+
+  belongs_to :company
+
+  has_many :tickets, through: :company
+
 end
