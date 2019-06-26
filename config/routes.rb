@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :paycheck_adjustments
   resources :paychecks
   resources :payrolls
@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   resources :tickets
   resources :companies
 
-  resources :users, only: [:create]
-  post '/login', to: 'auth#create'
-  get '/profile', to: 'users#profile'
+  post 'user/token' => 'user_token#create'
+  get 'users/current' => 'users#current'
 
 end

@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
   before_action :set_user, only: [:show, :update, :destroy]
 
+  def current
+    render json: current_user.as_json(only: %i(id username))
+  end
+
   # GET /users
   def index
     @users = User.all
