@@ -1,25 +1,25 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:create]
-  before_action :set_user, only: [:show, :update, :destroy]
+  skip_before_action :authorized, only: %i[create]
 
   def current
     render json: current_user.as_json(only: %i(id username))
   end
 
-  # GET /users
   def index
     @users = User.all
 
     render json: @users
   end
 
-  # GET /users/1
   def show
     render json: @user
   end
 
-  # POST /users
+  def profile
+    render json: { user: UserSerializer.new(current_user) }, status: :accepted
+  end
+
   def create
     @user = User.create(user_params)
     if @user.valid?
@@ -30,11 +30,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def profile
-    render json: { user: UserSerializer.new(current_user) }, status: :accepted
-  end
-
-  # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
       render json: @user
@@ -43,19 +38,14 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
   def destroy
     @user.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
+
+    def user_params
+      params.require(:user).permit(:email, :username, :password, :permission, :fname, :lname)
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:email, :username, :password, :permission, :company_id)
-    end
 end

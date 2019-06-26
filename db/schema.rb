@@ -15,10 +15,25 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
+  create_table "comp_users", force: :cascade do |t|
+    t.string "email"
+    t.string "username"
+    t.string "password_digest"
+    t.string "permission"
+    t.string "fname"
+    t.string "lname"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_comp_users_on_company_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -98,24 +113,28 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
     t.string "priority"
     t.string "category"
     t.bigint "user_id"
+    t.bigint "comp_user_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["comp_user_id"], name: "index_tickets_on_comp_user_id"
     t.index ["company_id"], name: "index_tickets_on_company_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "fname"
+    t.string "lname"
     t.string "email"
     t.string "username"
     t.string "password_digest"
     t.string "permission"
-    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_users_on_company_id"
   end
 
+  add_foreign_key "comp_users", "companies"
+  add_foreign_key "companies", "users"
   add_foreign_key "departments", "companies"
   add_foreign_key "departments", "employees"
   add_foreign_key "employees", "companies"
@@ -125,7 +144,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
   add_foreign_key "paychecks", "payrolls"
   add_foreign_key "payrolls", "companies"
   add_foreign_key "recurring_adjustments", "employees"
+  add_foreign_key "tickets", "comp_users"
   add_foreign_key "tickets", "companies"
   add_foreign_key "tickets", "users"
-  add_foreign_key "users", "companies"
 end
