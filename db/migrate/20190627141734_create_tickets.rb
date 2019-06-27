@@ -5,10 +5,8 @@ class CreateTickets < ActiveRecord::Migration[5.2]
       t.string :description
       t.string :priority
       t.string :category
-      t.belongs_to :user, optional: true, foreign_key: true
       t.belongs_to :company, foreign_key: true
-
-      t.timestamps
+      t.belongs_to :user, foreign_key: true
     end
   end
 end

@@ -10,25 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_183058) do
+ActiveRecord::Schema.define(version: 2019_06_27_142122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
+  create_table "comp_users", force: :cascade do |t|
+    t.bigint "company_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_companies_on_user_id"
+    t.index ["company_id"], name: "index_comp_users_on_company_id"
+    t.index ["user_id"], name: "index_comp_users_on_user_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.bigint "company_id"
     t.bigint "employee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_departments_on_company_id"
     t.index ["employee_id"], name: "index_departments_on_employee_id"
   end
@@ -37,12 +40,10 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
     t.string "full_name"
     t.string "pay_type"
     t.float "pay_rate"
-    t.boolean "active_status", default: true
+    t.boolean "active_status"
     t.string "filing_status"
-    t.integer "w4_allowances"
+    t.integer "w4_allowance"
     t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
@@ -52,35 +53,29 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
     t.string "description"
     t.bigint "paycheck_id"
     t.bigint "employee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_paycheck_adjustments_on_employee_id"
     t.index ["paycheck_id"], name: "index_paycheck_adjustments_on_paycheck_id"
   end
 
   create_table "paychecks", force: :cascade do |t|
-    t.float "hours", default: 0.0
-    t.float "ot_hours", default: 0.0
-    t.float "pto_hours", default: 0.0
-    t.float "vacation_hours", default: 0.0
-    t.float "holiday_hours", default: 0.0
-    t.float "sick_hours", default: 0.0
+    t.float "hours"
+    t.float "ot_hours"
+    t.float "pto_hours"
+    t.float "vacation_hours"
+    t.float "holiday_hours"
+    t.float "sick_hours"
     t.bigint "payroll_id"
     t.bigint "employee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_paychecks_on_employee_id"
     t.index ["payroll_id"], name: "index_paychecks_on_payroll_id"
   end
 
   create_table "payrolls", force: :cascade do |t|
-    t.string "payroll_status", default: "Not Started"
+    t.string "payroll_status"
     t.date "start_date"
     t.date "end_date"
     t.date "check_date"
     t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_payrolls_on_company_id"
   end
 
@@ -89,8 +84,6 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
     t.float "adj_amount"
     t.string "description"
     t.bigint "employee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_recurring_adjustments_on_employee_id"
   end
 
@@ -99,10 +92,8 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
     t.string "description"
     t.string "priority"
     t.string "category"
-    t.bigint "user_id"
     t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["company_id"], name: "index_tickets_on_company_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
@@ -114,11 +105,10 @@ ActiveRecord::Schema.define(version: 2019_06_25_183058) do
     t.string "username"
     t.string "password_digest"
     t.string "permission"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "companies", "users"
+  add_foreign_key "comp_users", "companies"
+  add_foreign_key "comp_users", "users"
   add_foreign_key "departments", "companies"
   add_foreign_key "departments", "employees"
   add_foreign_key "employees", "companies"
