@@ -10,6 +10,6 @@ class CompanySerializer < ActiveModel::Serializer
   has_many :users, through: :comp_users
 
   has_many :employees
-  has_many :employees, through: :departments
+  # has_many :employees, through: :departments
 
 end
