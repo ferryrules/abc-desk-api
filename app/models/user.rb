@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :username, uniqueness: { case_sensitive: false }
 
-  has_many :companies
+  has_many :companies, optional: true
   has_many :tickets
 
   has_many :tickets, through: :companies
