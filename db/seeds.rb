@@ -21,7 +21,7 @@ e6 = Employee.create(full_name: "Ali Reubenstone", pay_type: "Salary", pay_rate:
 d1 = Department.create(name: "CAO", company: c1, employee: e1)
 
 t1 = Ticket.create(title: 'Computer Crashed', description: "Hit it was golf club and now it doesn't work", priority: 'High', category: 'Hardware', company: c1, user: u1)
-t1 = Ticket.create(title: 'Software Needed', description: "Need software to steal money", priority: 'High', category: 'Software', company: c1, user: u1)
+t2 = Ticket.create(title: 'Software Needed', description: "Need software to steal money", priority: 'High', category: 'Software', company: c1, user: u1)
 
 pr1 = Payroll.create(start_date: 'June 1, 2019', end_date: 'June 8, 2019', check_date: 'June 11, 2019', company: c1)
 
