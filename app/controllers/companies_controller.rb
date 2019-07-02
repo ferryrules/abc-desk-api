@@ -3,13 +3,14 @@ class CompaniesController < ApplicationController
 
   # GET /companies
   def index
-    @companies = Company.all
+    @companies = @user.companies
 
     render json: @companies
   end
 
   # GET /companies/1
   def show
+    
     render json: @company
   end
 
