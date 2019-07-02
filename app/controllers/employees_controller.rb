@@ -15,7 +15,7 @@ class EmployeesController < ApplicationController
   # POST /employees
   def create
     @employee = Employee.new(employee_params)
-    byebug
+    # byebug
     if @employee.save
       render json: @employee, status: :created, location: @employee
     else
@@ -35,6 +35,8 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   def destroy
     @employee.destroy
+    @employees = Employee.all
+    render json: @employees
   end
 
   private
