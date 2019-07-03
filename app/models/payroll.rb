@@ -6,4 +6,8 @@ class Payroll < ApplicationRecord
   has_many :paycheck_adjustments, through: :paychecks
   has_many :employees, through: :paychecks
 
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :check_date, presence: true
+
 end
