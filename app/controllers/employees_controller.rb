@@ -33,11 +33,12 @@ class EmployeesController < ApplicationController
   end
 
   # DELETE /employees/1
-  def destroy
-    @employee.destroy
-    @employees = Employee.all
-    render json: @employees
-  end
+  # def destroy
+  #   # byebug
+  #   @employee.destroy
+  #   # @employees = Employee.all
+  #   # render json: @employees
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
