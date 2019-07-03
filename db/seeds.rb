@@ -18,7 +18,7 @@ e5 = Employee.create(full_name: "Rayanne Buchianico", pay_type: "Salary", pay_ra
 e6 = Employee.create(full_name: "Ali Reubenstone", pay_type: "Salary", pay_rate: 999999.99, filing_status: 'Single', w4_allowance: 0, company: c3)
 
 
-d1 = Department.create(name: "CAO", company: c1, employee: e1)
+d1 = Department.create(name: "CAO", company: c1, employee: e4)
 
 t1 = Ticket.create(title: 'Computer Crashed', description: "Hit it was golf club and now it doesn't work", priority: 'High', category: 'Hardware', company: c1, user: u1)
 t2 = Ticket.create(title: 'Software Needed', description: "Need software to steal money", priority: 'High', category: 'Software', company: c1, user: u1)
