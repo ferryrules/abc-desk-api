@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :comp_users
   resources :users
   resources :companies
-  resources :employees
+  # resources :employees
   resources :departments
   resources :recurring_adjustments
   resources :paycheck_adjustments

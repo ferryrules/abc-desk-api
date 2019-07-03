@@ -3,6 +3,8 @@ class EmployeesController < ApplicationController
 
   # GET /employees
   def index
+    # @company = Company.find(params[:company_id])
+    byebug
     @employees = Employee.all
     render json: @employees
   end

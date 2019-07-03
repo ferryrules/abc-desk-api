@@ -4,7 +4,6 @@ class PayrollsController < ApplicationController
   # GET /payrolls
   def index
     @payrolls = Payroll.all
-
     render json: @payrolls
   end
 
