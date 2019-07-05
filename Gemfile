@@ -5,6 +5,9 @@ ruby '2.6.1'
 
 gem 'active_model_serializers'
 
+# gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
