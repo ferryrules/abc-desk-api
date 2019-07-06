@@ -12,18 +12,18 @@ Rails.application.routes.draw do
   resources :tickets
   #
   # resources :users do
-  #   resources :companies do
-  #     resources :tickets
-  #   end
+    resources :companies do
+      resources :tickets
+    end
   # end
   # test
   # resources :users do
-    resources :companies do
-      resources :employees do
-        resources :departments
-        resources :recurring_adjustments
-      end
-    end
+    # resources :companies do
+    #   resources :employees do
+    #     resources :departments
+    #     resources :recurring_adjustments
+    #   end
+    # end
   # end
   #
   # resources :users do

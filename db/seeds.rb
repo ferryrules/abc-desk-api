@@ -10,7 +10,6 @@ cu1 = CompUser.create(company: c2, user: u1)
 cu1 = CompUser.create(company: c3, user: u2)
 
 e1 = Employee.create(full_name: "Sam Perrey", pay_type: "Salary", pay_rate: 400000.99, filing_status: 'Married', w4_allowance: 0, company: c1)
-e2 = Employee.create(full_name: "Danielle Jasper", pay_type: "Salary", pay_rate: 500000.99, filing_status: 'Single', w4_allowance: 0, company: c1)
 e3 = Employee.create(full_name: "Amy Velligan", pay_type: "Salary", pay_rate: 400000.99, filing_status: 'Single', w4_allowance: 0, company: c1)
 e4 = Employee.create(full_name: "Ferris Boran", pay_type: "Salary", pay_rate: 600000.99, filing_status: 'Single', w4_allowance: 0, company: c1)
 e5 = Employee.create(full_name: "Ferris Boran", pay_type: "Salary", pay_rate: 600000.99, filing_status: 'Single', w4_allowance: 0, company: c2)
@@ -26,7 +25,7 @@ t2 = Ticket.create(title: 'Software Needed', description: "Need software to stea
 pr1 = Payroll.create(start_date: 'June 1, 2019', end_date: 'June 8, 2019', check_date: 'June 11, 2019', company: c1)
 
 pc1 = Paycheck.create(hours: 40, payroll: pr1, employee: e1)
-pc2 = Paycheck.create(hours: 40, payroll: pr1, employee: e2)
+pc2 = Paycheck.create(hours: 40, payroll: pr1, employee: e3)
 
 pa1 = PaycheckAdjustment.create(adj_type: 'Addition', adj_amount: 456.78, description: 'Additional Cool Person Bonus', paycheck: pc1, employee: e1)
 
