@@ -26,10 +26,10 @@ d1 = Department.create(name: "CTO", company: c2, employee: e4)
 d1 = Department.create(name: "CEO", company: c2, employee: e5)
 d1 = Department.create(name: "CEO", company: c3, employee: e6)
 
-t1 = Ticket.create(title: 'Computer Crashed', description: "Hit it was golf club and now it doesn't work", priority: '1 - High', category: 'Hardware', company: c1, user: u1, ticket_status: 'open')
-t2 = Ticket.create(title: 'Software Needed', description: "Need software to steal money", priority: '1 - High', category: 'Software', company: c1, user: u2, ticket_status: 'open')
-t3 = Ticket.create(title: 'Squirrel Ate Mouse', description: "Need a new one", priority: '2 - Medium', category: 'Hardware', company: c1, user: u1, ticket_status: 'open')
-t4 = Ticket.create(title: 'Google Not Working', description: "Keeps telling me to try again", priority: '3 - Low', category: 'Software', company: c1, user: u1, ticket_status: 'open')
+t1 = Ticket.create(title: 'Computer Crashed', description: "Hit it was golf club and now it doesn't work", priority: 'High', category: 'Hardware', company: c1, user: u1, ticket_status: 'open')
+t2 = Ticket.create(title: 'Software Needed', description: "Need software to steal money", priority: 'High', category: 'Software', company: c1, user: u2, ticket_status: 'open')
+t3 = Ticket.create(title: 'Squirrel Ate Mouse', description: "Need a new one", priority: 'Medium', category: 'Hardware', company: c1, user: u1, ticket_status: 'open')
+t4 = Ticket.create(title: 'Google Not Working', description: "Keeps telling me to try again", priority: 'Low', category: 'Software', company: c1, user: u1, ticket_status: 'open')
 
 # pr1 = Payroll.create(start_date: 'June 1, 2019', end_date: 'June 8, 2019', check_date: 'June 11, 2019', company: c1)
 #
