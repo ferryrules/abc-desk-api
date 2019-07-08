@@ -4,8 +4,9 @@ class CompaniesController < ApplicationController
   # GET /companies
   def index
     @companies = @user.companies
-
-    render json: @companies
+    # Used for now until I can get the multiple companies working
+    @company = @companies.first
+    render json: @company
   end
 
   # GET /companies/1
