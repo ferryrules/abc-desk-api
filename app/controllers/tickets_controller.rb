@@ -4,8 +4,8 @@ class TicketsController < ApplicationController
   # GET /tickets
   def index
     @tickets = Ticket.all
-
-    render json: @tickets
+    @sorted_tickets = @tickets.sort_by{|t| t.priority}
+    render json: @sorted_tickets
   end
 
   # GET /tickets/1
