@@ -6,8 +6,8 @@ c2 = Company.create(name: "ABC Solutions, LLC")
 c3 = Company.create(name: "PackingPal")
 
 cu1 = CompUser.create(company: c1, user: u1)
-cu1 = CompUser.create(company: c2, user: u1)
-cu1 = CompUser.create(company: c3, user: u2)
+cu2 = CompUser.create(company: c2, user: u1)
+cu3 = CompUser.create(company: c3, user: u2)
 
 e1 = Employee.create(full_name: "Sam Perrey", pay_type: "Salary", pay_rate: 400000.99, filing_status: 'Married', w4_allowance: 0, company: c1)
 e2 = Employee.create(full_name: "Danielle Jasper", pay_type: "Salary", pay_rate: 800000.99, filing_status: 'Single', w4_allowance: 0, company: c1)
