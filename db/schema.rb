@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_204255) do
     t.string "full_name"
     t.string "pay_type"
     t.float "pay_rate"
-    t.boolean "active_status", default: true
+    t.string "active_status", default: "Active"
     t.string "filing_status"
     t.integer "w4_allowance"
     t.bigint "company_id"
