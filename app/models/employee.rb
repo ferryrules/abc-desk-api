@@ -7,6 +7,7 @@ class Employee < ApplicationRecord
 
   has_many :paychecks
   has_many :paycheck_adjustments, through: :paychecks
+  has_many :payrolls, through: :paychecks
 
   validates :full_name, presence: true
 

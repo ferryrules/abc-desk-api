@@ -31,11 +31,11 @@ t2 = Ticket.create(title: 'Software Needed', description: "Need software to stea
 t3 = Ticket.create(title: 'Squirrel Ate Mouse', description: "Need a new one", priority: 'Medium', category: 'Hardware', company: c1, user: u1, ticket_status: 'open')
 t4 = Ticket.create(title: 'Google Not Working', description: "Keeps telling me to try again", priority: 'Low', category: 'Software', company: c1, user: u1, ticket_status: 'open')
 
-# pr1 = Payroll.create(start_date: 'June 1, 2019', end_date: 'June 8, 2019', check_date: 'June 11, 2019', company: c1)
-#
-# pc1 = Paycheck.create(hours: 40, payroll: pr1, employee: e1)
+pr1 = Payroll.create(start_date: 'June 1, 2019', end_date: 'June 8, 2019', check_date: 'June 11, 2019', company: c1)
+
+pc1 = Paycheck.create(hours: 40, payroll: pr1, employee: e1)
 # pc2 = Paycheck.create(hours: 40, payroll: pr1, employee: e3)
 #
 # pa1 = PaycheckAdjustment.create(adj_type: 'Addition', adj_amount: 456.78, description: 'Additional Cool Person Bonus', paycheck: pc1, employee: e1)
 #
-# ra1 = RecurringAdjustment.create(adj_type: 'Addition', adj_amount: 12345.67, description: 'Awesome Person Bonus', employee: e1)
+ra1 = RecurringAdjustment.create(adj_type: 'Addition', adj_amount: 12345.67, description: 'Awesome Person Bonus', employee: e1)

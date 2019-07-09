@@ -8,6 +8,7 @@ class EmployeeSerializer < ActiveModel::Serializer
   has_many :recurring_adjustments
 
   has_many :paychecks
+  has_many :payrolls, through: :paychecks
   has_many :paycheck_adjustments, through: :paychecks
 
 end
