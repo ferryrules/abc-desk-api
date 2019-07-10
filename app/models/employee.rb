@@ -11,13 +11,4 @@ class Employee < ApplicationRecord
 
   validates :full_name, presence: true
 
-  def to_currency(pre_symbol='$', thousands=',', decimal='.',post_symbol=nil)
-    "#{pre_symbol}#{
-      ( "%.2f" % self.pay_rate ).gsub(
-        /(\d)(?=(?:\d{3})+(?:$|\.))/,
-        "\\1#{thousands}"
-      )
-    }#{post_symbol}"
-  end
-
 end
