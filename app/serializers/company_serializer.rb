@@ -1,6 +1,6 @@
 class CompanySerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :high, :medium, :low, :open, :pending, :closed, :hours, :all_check_dates
+  attributes :id, :name, :high, :medium, :low, :open, :pending, :closed, :hours, :all_check_dates, :active, :terminated, :hourly, :salary
 
   has_many :departments
   has_many :payrolls
@@ -11,6 +11,38 @@ class CompanySerializer < ActiveModel::Serializer
 
   has_many :employees
   # has_many :employees, through: :departments
+
+  def active
+    @active = []
+    Employee.all.each do |emp|
+      @active.push(emp) if emp.active_status == 'Active'
+    end
+    @active
+  end
+
+  def terminated
+    @terminated = []
+    Employee.all.each do |emp|
+      @terminated.push(emp) if emp.active_status == 'Terminated'
+    end
+    @terminated
+  end
+
+  def hourly
+    @hourly = []
+    Employee.all.each do |emp|
+      @hourly.push(emp) if emp.pay_type == 'Hourly'
+    end
+    @hourly
+  end
+
+  def salary
+    @salary = []
+    Employee.all.each do |emp|
+      @salary.push(emp) if emp.pay_type == 'Salary'
+    end
+    @salary
+  end
 
   def high
     @high = []
@@ -62,7 +94,7 @@ class CompanySerializer < ActiveModel::Serializer
 
   def hours
     total_hours = 0
-    
+
   end
 
   def all_check_dates

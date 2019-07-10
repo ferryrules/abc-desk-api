@@ -6,7 +6,7 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
       t.float :pay_rate
       t.string :active_status, default: 'Active'
       t.string :filing_status
-      t.integer :w4_allowance
+      t.integer :w4_allowance, default: 0
       t.belongs_to :company, foreign_key: true
     end
   end
