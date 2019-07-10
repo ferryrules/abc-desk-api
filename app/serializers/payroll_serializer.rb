@@ -6,5 +6,5 @@ class PayrollSerializer < ActiveModel::Serializer
     has_many :paychecks
     has_many :paycheck_adjustments, through: :paychecks
     has_many :employees, through: :paychecks
-    
+
 end

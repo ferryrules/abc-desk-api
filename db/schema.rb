@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_204255) do
+ActiveRecord::Schema.define(version: 2019_07_10_152030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_204255) do
     t.string "filing_status"
     t.integer "w4_allowance"
     t.bigint "company_id"
+    t.string "title"
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 

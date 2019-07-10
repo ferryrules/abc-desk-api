@@ -1,6 +1,6 @@
 class CompanySerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :high, :medium, :low, :open, :pending, :closed
+  attributes :id, :name, :high, :medium, :low, :open, :pending, :closed, :hours, :all_check_dates
 
   has_many :departments
   has_many :payrolls
@@ -58,6 +58,17 @@ class CompanySerializer < ActiveModel::Serializer
       @closed.push(ticket) if ticket.ticket_status == 'Closed'
     end
     @closed
+  end
+
+  def hours
+    total_hours = 0
+    
+  end
+
+  def all_check_dates
+    Payroll.all.map do |payr|
+      payr.check_date
+    end
   end
 
 end
