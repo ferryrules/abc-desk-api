@@ -32,22 +32,12 @@ class EmployeesController < ApplicationController
     end
   end
 
-  # DELETE /employees/1
-  # def destroy
-  #   # byebug
-  #   @employee.destroy
-  #   # @employees = Employee.all
-  #   # render json: @employees
-  # end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def employee_params
-      params.require(:employee).permit(:full_name, :pay_type, :pay_rate, :active_status, :filing_status, :w4_allowance, :company_id)
+      params.require(:employee).permit(:full_name, :pay_type, :pay_rate, :active_status, :filing_status, :title, :w4_allowance, :company_id)
     end
 end
