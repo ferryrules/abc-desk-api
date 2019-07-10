@@ -1,6 +1,6 @@
 class EmployeeSerializer < ActiveModel::Serializer
 
-  attributes :id, :full_name, :pay_type, :pay_rate, :active_status, :filing_status, :w4_allowance
+  attributes :id, :full_name, :pay_type, :pay_rate, :active_status, :filing_status, :w4_allowance, :title
 
   belongs_to :company
 
