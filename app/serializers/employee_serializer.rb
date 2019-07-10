@@ -1,6 +1,6 @@
 class EmployeeSerializer < ActiveModel::Serializer
 
-  attributes :id, :full_name, :pay_type, :pay_rate, :active_status, :filing_status, :w4_allowance, :title, :pay_rate
+  attributes :id, :full_name, :pay_type, :pay_rate, :active_status, :filing_status, :w4_allowance, :title, :to_currency
 
   belongs_to :company
 
@@ -13,7 +13,7 @@ class EmployeeSerializer < ActiveModel::Serializer
 
   def to_currency(pre_symbol='$', thousands=',', decimal='.',post_symbol=nil)
     "#{pre_symbol}#{
-      ( "%.2f" % self.pay_rate ).gsub(
+      ( "%.2f" % self.object.pay_rate ).gsub(
         /(\d)(?=(?:\d{3})+(?:$|\.))/,
         "\\1#{thousands}"
       )
