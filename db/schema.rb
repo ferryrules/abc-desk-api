@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_142118) do
+ActiveRecord::Schema.define(version: 2019_07_11_144745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_142118) do
     t.date "end_date"
     t.date "check_date"
     t.bigint "company_id"
+    t.integer "cash_req"
     t.index ["company_id"], name: "index_payrolls_on_company_id"
   end
 

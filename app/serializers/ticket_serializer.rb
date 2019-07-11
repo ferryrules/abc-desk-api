@@ -1,5 +1,5 @@
 class TicketSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :priority, :category, :ticket_status
+  attributes :id, :title, :description, :priority, :category, :ticket_status, :department
 
   belongs_to :user, optional: true
   belongs_to :company
