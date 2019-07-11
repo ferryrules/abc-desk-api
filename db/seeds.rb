@@ -56,7 +56,7 @@ pr7 = Payroll.create(start_date: 'June 17, 2019', end_date: 'June 23, 2019', che
 pr8 = Payroll.create(start_date: 'June 24, 2019', end_date: 'June 30, 2019', check_date: 'July 5, 2019', company: c1,  payroll_status: 'Submitted', cash_req: 72115.38)
 pr9 = Payroll.create(start_date: 'July 1, 2019', end_date: 'July 7, 2019', check_date: 'July 12, 2019', company: c1,  payroll_status: 'Submitted', cash_req: 70287.98)
 pr10 = Payroll.create(start_date: 'July 8, 2019', end_date: 'July 14, 2019', check_date: 'July 19, 2019', company: c1, cash_req: 86003.96, payroll_status: 'Started')
-pr11 = Payroll.create(start_date: 'July 15, 2019', end_date: 'July 21, 2019', check_date: 'July 26, 2019', company: c1)
+pr11 = Payroll.create(start_date: 'July 15, 2019', end_date: 'July 21, 2019', check_date: 'July 26, 2019', company: c1, cash_req: 0)
 
 pc1 = Paycheck.create(hours: 40, payroll: pr1, employee: e5)
 pc2 = Paycheck.create(hours: 35, payroll: pr1, employee: e6)
