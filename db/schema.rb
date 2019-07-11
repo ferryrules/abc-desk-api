@@ -44,9 +44,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_144745) do
     t.integer "w4_allowance", default: 0
     t.bigint "company_id"
     t.string "title"
-    t.bigint "department_id"
     t.index ["company_id"], name: "index_employees_on_company_id"
-    t.index ["department_id"], name: "index_employees_on_department_id"
   end
 
   create_table "paycheck_adjustments", force: :cascade do |t|
@@ -98,9 +96,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_144745) do
     t.bigint "company_id"
     t.bigint "user_id"
     t.string "ticket_status"
-    t.bigint "department_id"
     t.index ["company_id"], name: "index_tickets_on_company_id"
-    t.index ["department_id"], name: "index_tickets_on_department_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -117,7 +113,6 @@ ActiveRecord::Schema.define(version: 2019_07_11_144745) do
   add_foreign_key "comp_users", "users"
   add_foreign_key "departments", "companies"
   add_foreign_key "employees", "companies"
-  add_foreign_key "employees", "departments"
   add_foreign_key "paycheck_adjustments", "employees"
   add_foreign_key "paycheck_adjustments", "paychecks"
   add_foreign_key "paychecks", "employees"
@@ -125,6 +120,5 @@ ActiveRecord::Schema.define(version: 2019_07_11_144745) do
   add_foreign_key "payrolls", "companies"
   add_foreign_key "recurring_adjustments", "employees"
   add_foreign_key "tickets", "companies"
-  add_foreign_key "tickets", "departments"
   add_foreign_key "tickets", "users"
 end

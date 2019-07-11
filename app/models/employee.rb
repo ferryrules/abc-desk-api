@@ -1,9 +1,9 @@
 class Employee < ApplicationRecord
 
   belongs_to :company
-  belongs_to :department, optional: true
+  # belongs_to :department, optional: true
 
-  has_many :departments
+  # has_many :departments, optional: true
   has_many :recurring_adjustments
 
   has_many :paychecks

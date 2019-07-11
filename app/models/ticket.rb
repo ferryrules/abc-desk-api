@@ -2,7 +2,7 @@ class Ticket < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :company
-  belongs_to :department, optional: true
+  # belongs_to :department, optional: true
 
   has_many :comp_users, through: :company
   has_many :users, through: :company
@@ -25,7 +25,6 @@ class Ticket < ApplicationRecord
       @pending.push(ticket) if ticket.ticket_status == 'Pending'
       @closed.push(ticket) if ticket.ticket_status == 'Closed'
     end
-    byebug
   end
 
 end
