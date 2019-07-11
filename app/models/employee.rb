@@ -1,6 +1,7 @@
 class Employee < ApplicationRecord
 
   belongs_to :company
+  belongs_to :department, optional: true
 
   has_many :departments
   has_many :recurring_adjustments

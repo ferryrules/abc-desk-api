@@ -3,6 +3,7 @@ class TicketSerializer < ActiveModel::Serializer
 
   belongs_to :user, optional: true
   belongs_to :company
+  belongs_to :department, optional: true
 
   has_many :comp_users, through: :company
   has_many :users, through: :company

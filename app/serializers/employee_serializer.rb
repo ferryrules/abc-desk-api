@@ -3,8 +3,8 @@ class EmployeeSerializer < ActiveModel::Serializer
   attributes :id, :full_name, :pay_type, :pay_rate, :active_status, :filing_status, :w4_allowance, :title, :to_currency
 
   belongs_to :company
+  belongs_to :department, optional: true
 
-  has_many :departments
   has_many :recurring_adjustments
 
   has_many :paychecks

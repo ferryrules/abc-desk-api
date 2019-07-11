@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_152030) do
+ActiveRecord::Schema.define(version: 2019_07_11_142118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,14 +26,13 @@ ActiveRecord::Schema.define(version: 2019_07_10_152030) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
+    t.string "payroll_freq"
   end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.bigint "company_id"
-    t.bigint "employee_id"
     t.index ["company_id"], name: "index_departments_on_company_id"
-    t.index ["employee_id"], name: "index_departments_on_employee_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -45,7 +44,9 @@ ActiveRecord::Schema.define(version: 2019_07_10_152030) do
     t.integer "w4_allowance", default: 0
     t.bigint "company_id"
     t.string "title"
+    t.bigint "department_id"
     t.index ["company_id"], name: "index_employees_on_company_id"
+    t.index ["department_id"], name: "index_employees_on_department_id"
   end
 
   create_table "paycheck_adjustments", force: :cascade do |t|
@@ -96,7 +97,9 @@ ActiveRecord::Schema.define(version: 2019_07_10_152030) do
     t.bigint "company_id"
     t.bigint "user_id"
     t.string "ticket_status"
+    t.bigint "department_id"
     t.index ["company_id"], name: "index_tickets_on_company_id"
+    t.index ["department_id"], name: "index_tickets_on_department_id"
     t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
@@ -112,8 +115,8 @@ ActiveRecord::Schema.define(version: 2019_07_10_152030) do
   add_foreign_key "comp_users", "companies"
   add_foreign_key "comp_users", "users"
   add_foreign_key "departments", "companies"
-  add_foreign_key "departments", "employees"
   add_foreign_key "employees", "companies"
+  add_foreign_key "employees", "departments"
   add_foreign_key "paycheck_adjustments", "employees"
   add_foreign_key "paycheck_adjustments", "paychecks"
   add_foreign_key "paychecks", "employees"
@@ -121,5 +124,6 @@ ActiveRecord::Schema.define(version: 2019_07_10_152030) do
   add_foreign_key "payrolls", "companies"
   add_foreign_key "recurring_adjustments", "employees"
   add_foreign_key "tickets", "companies"
+  add_foreign_key "tickets", "departments"
   add_foreign_key "tickets", "users"
 end
