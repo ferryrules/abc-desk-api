@@ -1,6 +1,6 @@
 class CompanySerializer < ActiveModel::Serializer
 
-  attributes :id, :name, :high, :medium, :low, :open, :pending, :closed, :all_check_dates, :active, :terminated, :hourly, :salary
+  attributes :id, :name, :high, :medium, :low, :open, :pending, :closed, :check_dates_with_total_hours, :active, :terminated, :hourly, :salary
 
   has_many :departments
   has_many :payrolls
@@ -72,10 +72,18 @@ class CompanySerializer < ActiveModel::Serializer
     end
   end
 
-  def all_check_dates
+  def check_dates_with_total_hours
     Payroll.all.map do |payr|
-      payr.check_date
+      [payr.check_date, total_hours(payr.paychecks)]
     end
+  end
+
+  def total_hours(paychecks)
+    total = 0
+    paychecks.each do |pc|
+      total += pc.hours + pc.ot_hours + pc.pto_hours + pc.vacation_hours + pc.holiday_hours + pc.sick_hours
+    end
+    total
   end
 
 end
