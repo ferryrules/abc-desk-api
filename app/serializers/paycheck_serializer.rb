@@ -1,5 +1,5 @@
 class PaycheckSerializer < ActiveModel::Serializer
-  attributes :id, :hours, :ot_hours, :pto_hours, :vacation_hours, :holiday_hours, :sick_hours, :payroll_id, :emp_name, :emp_pay_type, :emp_pay_rate
+  attributes :id, :hours, :ot_hours, :pto_hours, :vacation_hours, :holiday_hours, :sick_hours, :payroll_id, :emp_name, :emp_pay_type, :emp_pay_rate, :emp_id
 
     belongs_to :payroll
     belongs_to :employee
@@ -16,6 +16,10 @@ class PaycheckSerializer < ActiveModel::Serializer
 
     def emp_pay_rate
       self.object.employee.to_currency
+    end
+
+    def emp_id
+      self.object.employee.id
     end
 
 end
