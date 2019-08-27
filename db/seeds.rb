@@ -37,7 +37,7 @@ e17 = Employee.create(full_name: "Sarah Granoff", pay_type: "Salary", pay_rate: 
 e18 = Employee.create(full_name: "Soyeong Oh", pay_type: "Salary", pay_rate: 250000.00, filing_status: 'Single', w4_allowance: 0, company: c1, title: 'CBO - Chief Branding Officer')
 e19 = Employee.create(full_name: "Tommy Lau", pay_type: "Salary", pay_rate: 250000.00, filing_status: 'Single', w4_allowance: 0, company: c1, title: 'CDO - Chief Data Officer')
 
-t1 = Ticket.create(title: 'Computer Crashed', description: "Hit it was golf club and now it doesn't work", priority: 'High', category: 'Hardware', company: c1, user: u1, ticket_status: 'Open')
+t1 = Ticket.create(title: 'Computer Crashed', description: "Hit it with a golf club and now it doesn't work", priority: 'High', category: 'Hardware', company: c1, user: u1, ticket_status: 'Open')
 t2 = Ticket.create(title: 'Software Needed', description: "Need software to steal money", priority: 'High', category: 'Software', company: c1, user: u2, ticket_status: 'Open')
 t3 = Ticket.create(title: 'Cat Ate Mouse', description: "Need a new one", priority: 'Medium', category: 'Hardware', company: c1, user: u1, ticket_status: 'Open')
 t4 = Ticket.create(title: 'Google Not Working', description: "Keeps telling me to try again", priority: 'Low', category: 'Software', company: c1, user: u1, ticket_status: 'Open')
