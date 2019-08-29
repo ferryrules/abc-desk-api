@@ -33,4 +33,8 @@ class EmployeeSerializer < ActiveModel::Serializer
     }#{post_symbol}"
   end
 
+  def full_name
+    self.object.fname + ' ' + self.object.lname
+  end
+
 end

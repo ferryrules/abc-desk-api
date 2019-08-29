@@ -10,7 +10,8 @@ class Employee < ApplicationRecord
   has_many :paycheck_adjustments, through: :paychecks
   has_many :payrolls, through: :paychecks
 
-  validates :full_name, presence: true
+  validates :fname, presence: true
+  validates :lname, presence: true
 
   def weekly_pay_rate
     self.pay_rate / 52
@@ -34,5 +35,8 @@ class Employee < ApplicationRecord
     }#{post_symbol}"
   end
 
+  def full_name
+    self.fname + ' ' + self.lname
+  end
 
 end
