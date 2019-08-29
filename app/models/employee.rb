@@ -16,7 +16,7 @@ class Employee < ApplicationRecord
     self.pay_rate / 52
   end
 
-  def to_currency(pre_symbol='$', thousands=',', decimal='.',post_symbol=nil)
+  def weekly_to_currency(pre_symbol='$', thousands=',', decimal='.',post_symbol=nil)
     "#{pre_symbol}#{
       ( "%.2f" % self.weekly_pay_rate ).gsub(
         /(\d)(?=(?:\d{3})+(?:$|\.))/,
@@ -24,5 +24,15 @@ class Employee < ApplicationRecord
       )
     }#{post_symbol}"
   end
+
+  def to_currency(pre_symbol='$', thousands=',', decimal='.',post_symbol=nil)
+    "#{pre_symbol}#{
+      ( "%.2f" % self.pay_rate ).gsub(
+        /(\d)(?=(?:\d{3})+(?:$|\.))/,
+        "\\1#{thousands}"
+      )
+    }#{post_symbol}"
+  end
+
 
 end

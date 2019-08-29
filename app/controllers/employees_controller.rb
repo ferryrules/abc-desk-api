@@ -38,6 +38,6 @@ class EmployeesController < ApplicationController
     end
 
     def employee_params
-      params.require(:employee).permit(:full_name, :pay_type, :pay_rate, :active_status, :filing_status, :title, :w4_allowance, :company_id)
+      params.require(:employee).permit(:full_name, :pay_type, :pay_rate, :active_status, :filing_status, :title, :w4_allowance, :company_id, :to_currency, :weekly_to_currency)
     end
 end
