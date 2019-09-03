@@ -1,5 +1,6 @@
 u1 = User.create(email: 'ferris@ferryrules.com', username: 'ferryrules', password_digest: 'asd', permission: 'Super Admin', fname: 'Ferris', lname: 'Boran')
 u2 = User.create(email: 'ali.reubenstone@flatironschool.com', username: 'alirules', password_digest: 'asd', permission: 'Super Admin', fname: 'Ali', lname: 'Reubenstone')
+u3 = User.create(email: 'test@testing.com', username: 'test', password_digest: 'test', permission: 'Super Admin', fname: 'Tester', lname: 'McTestface')
 
 c1 = Company.create(name: "FerryRules")
 c2 = Company.create(name: "ABC Solutions, LLC")
