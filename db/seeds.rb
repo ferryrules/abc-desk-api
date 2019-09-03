@@ -9,6 +9,7 @@ c3 = Company.create(name: "PackingPal")
 cu1 = CompUser.create(company: c1, user: u1)
 cu2 = CompUser.create(company: c2, user: u1)
 cu3 = CompUser.create(company: c3, user: u2)
+cu4 = CompUser.create(company: c1, user: u3)
 
 # d1 = Department.create(name: "Finance", company: c1)
 # d2 = Department.create(name: "Admin", company: c1)
