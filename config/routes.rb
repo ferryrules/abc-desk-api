@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :updates
   resources :comp_users
   resources :users
   resources :companies

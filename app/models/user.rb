@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :tickets
   has_many :tickets, through: :companies
 
+  has_many :updates
+  has_many :updates, through: :tickets
+
   attr_accessor :password
 
   def authenticate(plaintext_password)

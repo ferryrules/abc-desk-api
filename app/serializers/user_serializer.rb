@@ -7,5 +7,8 @@ class UserSerializer < ActiveModel::Serializer
 
   has_many :tickets
   has_many :tickets, through: :companies
-  
+
+  has_many :updates
+  has_many :updates, through: :tickets
+
 end
