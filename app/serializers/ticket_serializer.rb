@@ -8,4 +8,6 @@ class TicketSerializer < ActiveModel::Serializer
   has_many :comp_users, through: :company
   has_many :users, through: :company
 
+  has_many :updates
+  
 end

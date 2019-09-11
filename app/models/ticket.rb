@@ -7,6 +7,8 @@ class Ticket < ApplicationRecord
   has_many :comp_users, through: :company
   has_many :users, through: :company
 
+  has_many :updates
+
   @high = []
   @medium = []
   @low = []
