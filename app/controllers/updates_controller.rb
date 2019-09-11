@@ -46,6 +46,6 @@ class UpdatesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def update_params
-      params.require(:update).permit(:user_id, :text)
+      params.require(:update).permit(:user_id, :update_text)
     end
 end

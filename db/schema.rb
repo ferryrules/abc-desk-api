@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_025908) do
+ActiveRecord::Schema.define(version: 2019_09_11_031120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(version: 2019_09_11_025908) do
     t.string "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "ticket_id"
+    t.index ["ticket_id"], name: "index_updates_on_ticket_id"
     t.index ["user_id"], name: "index_updates_on_user_id"
   end
 
@@ -133,5 +135,6 @@ ActiveRecord::Schema.define(version: 2019_09_11_025908) do
   add_foreign_key "recurring_adjustments", "employees"
   add_foreign_key "tickets", "companies"
   add_foreign_key "tickets", "users"
+  add_foreign_key "updates", "tickets"
   add_foreign_key "updates", "users"
 end
